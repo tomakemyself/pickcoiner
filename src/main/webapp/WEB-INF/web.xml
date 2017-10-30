@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ 	<display-name>pickcoiner</display-name>
+ 	<filter>
+        <filter-name>pickcoiner</filter-name>
+        <filter-class>com.jfinal.core.JFinalFilter</filter-class>
+        <init-param>
+            <param-name>configClass</param-name>
+            <!-- 配置入口 -->
+            <param-value>com.pickcoiner.sys.SysConfig</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>pickcoiner</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

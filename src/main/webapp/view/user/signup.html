@@ -125,12 +125,12 @@
                                 	<div class="input-group">
 	                                    <input id="check_code" name="check_code" class="form-control" type="text">
 	                                    <div class="input-group-btn">
-	                                        <button tabindex="-1" class="btn btn-white" type="button">换一张</button>
+	                                        <button id="next_ckcode" tabindex="-1" class="btn btn-white" type="button">换一张</button>
 	                                    </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
-                                	<img alt="看不清，点击换一张" src="resource/images/validateCodeServlet.jpg">
+                                	<img id="ckcode_img" alt="看不清，点击换一张" src="signup/ckcode">
                                 </div>
                             </div>
                             
@@ -168,6 +168,13 @@
     <script src="resource/js/plugins/validate/jquery.validate.min.js"></script>
     <script src="resource/js/plugins/validate/messages_zh.min.js"></script>
     <script src="resource/js/demo/form-validate-demo.min.js"></script>
+    <script type="text/javascript">
+    	//点击跟换验证码
+    	$("#next_ckcode").click(function(){
+            src = "signup/ckcode?d=" + new Date();
+            $("#ckcode_img").attr("src",src);
+    	})
+    </script>
 </body>
 
 </html>

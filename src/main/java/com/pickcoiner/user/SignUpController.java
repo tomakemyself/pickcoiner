@@ -1,6 +1,12 @@
 package com.pickcoiner.user;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
+
 import com.jfinal.core.Controller;
+import com.pickcoiner.common.kit.CheckCodeKit;
+import com.pickcoiner.sys.SysConst;
 
 /**
 * <p>Title: com.pickcoiner.user.SignUpController</p>
@@ -28,6 +34,33 @@ public class SignUpController extends Controller {
 		String checkcode = getPara("checkcode");//验证码
 		String agree = getParaValues("agree")[0];//同意协议
 		
+		
+	}
+	
+	/**验证码*/
+	public void ckcode(){
+		
+		getResponse().setHeader("Pragma", "No-cache"); 
+		getResponse().setHeader("Cache-Control", "no-cache"); 
+		getResponse().setDateHeader("Expires", 0); 
+		getResponse().setContentType("image/jpeg");
+		
+		String checkcode = CheckCodeKit.generateVerifyCode(4);
+		
+		HttpSession session = getRequest().getSession(true);
+		
+		session.removeAttribute(SysConst.CHECK_CODE_NAME);	//删除原来的session验证码
+		session.setAttribute(SysConst.CHECK_CODE_NAME, checkcode.toLowerCase());
+		
+		//生成图片
+		int w = 100,h=30;
+		try {
+			CheckCodeKit.outputImage(w, h, getResponse().getOutputStream(), checkcode);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		renderNull();
 		
 	}
 	

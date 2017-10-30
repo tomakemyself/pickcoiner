@@ -26,6 +26,8 @@ public abstract class SysConst {
 	public static final String VIEW_TYPE_EXT=".html";
 	/**Freemarker property文件*/
 	public static final String FREEMARKER_RESNAME="freemarker.properties";
+	//验证码
+	public static final String CHECK_CODE_NAME="checkcode";
 	//the end
 	
 	

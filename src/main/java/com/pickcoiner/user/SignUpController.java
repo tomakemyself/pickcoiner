@@ -56,7 +56,7 @@ public class SignUpController extends Controller {
 		session.setAttribute(SysConst.CHECK_CODE_NAME, checkcode.toLowerCase());
 		
 		//生成图片,设定图片大小
-		int w = 100,h=30;
+		int w = 100,h = 30;
 		try {
 			CheckCodeKit.outputImage(w, h, getResponse().getOutputStream(), checkcode);
 		} catch (IOException e) {

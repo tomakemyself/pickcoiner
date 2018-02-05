@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="${BASE_PATH?if_exists}/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Pickcoiner 登陆</title>
+    <meta name="keywords" content="Pickcoiner拾币者网">
+    <meta name="description" content="全球最大的数字货币点数预测对赌专用平台">
+
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="resource/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="resource/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="resource/css/animate.min.css" rel="stylesheet">
+    <link href="resource/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg top-navigation">
+	<div class="row border-bottom white-bg">
+	    <nav class="navbar navbar-static-top" role="navigation">
+	        <div class="navbar-header">
+	            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+	                <i class="fa fa-reorder"></i>
+	            </button>
+	            <a href="#" class="navbar-brand">PickCoiner</a>
+	        </div>
+	        <div class="navbar-collapse collapse" id="navbar">
+	            <ul class="nav navbar-nav">
+	                <li class="active">
+	                    <a aria-expanded="false" role="button" href="index-2.html"> 返回首页</a>
+	                </li>
+	                <li class="dropdown">
+	                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 交易大厅 <span class="caret"></span></a>
+	                    <ul role="menu" class="dropdown-menu">
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">M菜单列表</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	                <li class="dropdown">
+	                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown">账户中心<span class="caret"></span></a>
+	                    <ul role="menu" class="dropdown-menu">
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                        <li><a href="#">菜单列表</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	                <li class="dropdown">
+	                    <a aria-expanded="false" role="button" href="index-2.html"> 公告</a>
+	                </li>
+	                <li class="dropdown">
+	                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 中文简体 <span class="caret"></span></a>
+	                    <ul role="menu" class="dropdown-menu">
+	                        <li><a href="#">中文简体</a>
+	                        </li>
+	                        <li><a href="#">English</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	
+	            </ul>
+	            <ul class="nav navbar-top-links navbar-right">
+	                <li>
+	                    <a href="login.html">
+	                        <i class="fa fa-sign-out"></i> 退出
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
+	    </nav>
+	</div>
+	<!-- 顶部菜单栏 结束 the end -->
+	
+	<!-- 注册表单开始 -->
+	<div class="wrapper wrapper-content animated rubberBand">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h3>注册拾币者</h3>
+                    </div>
+                    <div class="ibox-content">
+                        <form action="sign/login" class="form-horizontal m-t" id="signupForm" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">用户名：</label>
+                                <div class="col-sm-5">
+                                    <input id="username" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">密码：</label>
+                                <div class="col-sm-5">
+                                    <input id="password" name="password" class="form-control" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">验证码：</label>
+                                <div class="col-sm-3">
+	                                    <input id="checkcode" name="checkcode" class="form-control" type="text">
+                                </div>
+                                <div class="col-sm-3">
+                                	<img id="ckcode_img" title="看不清，点击换一张" alt="看不清，点击换一张" src="ckcode">
+                                	<a id="next_ckcode_img">看不清</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button class="btn btn-primary" type="submit">提交</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+				                                    已经有账户？<a href="signup">注册</a>&nbsp; 忘记密码？<a>重置找回</a>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="resource/js/jquery.min.js?v=2.1.4"></script>
+    <script src="resource/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="resource/js/content.min.js?v=1.0.0"></script>
+    <script src="resource/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="resource/js/plugins/validate/messages_zh.min.js"></script>
+    <script src="resource/js/demo/form-validate-signup.min.js"></script>
+    <script type="text/javascript">
+    	//点击跟换验证码
+    	$("#ckcode_img").click(function(){
+            src = "ckcode?d=" + new Date();
+            $("#ckcode_img").attr("src",src);
+    	})
+    	$("#next_ckcode_img").click(function(){
+            src = "ckcode?d=" + new Date();
+            $("#ckcode_img").attr("src",src);
+    	})
+    </script>
+</body>
+
+</html>

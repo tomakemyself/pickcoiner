@@ -1,12 +1,9 @@
 package com.pickcoiner.user;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpSession;
-
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
-import com.pickcoiner.common.kit.CheckCodeKit;
+import com.jfinal.i18n.I18n;
+import com.pickcoiner.common.ResponseMessage;
 import com.pickcoiner.sys.SysConst;
 import com.pickcoiner.user.validator.SignUpValidator;
 
@@ -22,54 +19,45 @@ import com.pickcoiner.user.validator.SignUpValidator;
  */
 public class SignUpController extends Controller {
 	
+	public final static UserService service = UserService.me;
+	
 	//进入注册页面
 	public void index(){
 		render("signup.html");
 	}
 	
 	/**用户注册*/
+	@SuppressWarnings("unused")
 	@Before(SignUpValidator.class)
-	public void signup(){
+	public void reg(){
 		String username = getPara("username");//用户名
-		String pwd = getPara("pwd");//密码
-		String pwd2 = getPara("pwd2");
+		String password = getPara("pwd");//密码
+		String confirmpassword = getPara("confirmpassword");
 		String email = getPara("email");//邮箱
 		String checkcode = getPara("checkcode");//验证码
 		String agree = getParaValues("agree")[0];//是否同意协议
+		ResponseMessage msg = new ResponseMessage();
 		
-		
-	}
-	
-	/**验证码图片*/
-	public void ckcode(){
-		
-		getResponse().setHeader("Pragma", "No-cache"); 
-		getResponse().setHeader("Cache-Control", "no-cache"); 
-		getResponse().setDateHeader("Expires", 0); 
-		getResponse().setContentType("image/jpeg");
-		
-		String checkcode = CheckCodeKit.generateVerifyCode(4);
-		
-		HttpSession session = getRequest().getSession(true);
-		
-		session.removeAttribute(SysConst.CHECK_CODE_NAME);	//删除原来的session验证码
-		session.setAttribute(SysConst.CHECK_CODE_NAME, checkcode.toLowerCase());
-		
-		//生成图片,设定图片大小
-		int w = 100,h = 30;
-		try {
-			CheckCodeKit.outputImage(w, h, getResponse().getOutputStream(), checkcode);
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(!getAttrForStr(SysConst.CHECK_CODE_NAME).equalsIgnoreCase(checkcode)){//验证码
+			msg.setText(I18n.use().get("signup_checkcode_error"));
+			
+			return ;
 		}
 		
-		renderNull();
-		
+		if(!service.findUser(getPara("username"))){
+			msg.setText(I18n.use().get(""));//已经存在该用户
+		}else{
+			msg.setText(I18n.use().get(""));
+			msg.setError(1);
+			msg.setUrl("");//注册成功后跳转的地址
+		}
 	}
 	
-	/**发送验证邮件	 */
-	public void sendEmail(){
-		
+	/**
+	 * 检查当前用户名是否已经被注册
+	 */
+	public void checkUser(){
+		renderJson("flag", service.findUser(getPara("username")) ? "Y" : "N");
 	}
 
 }

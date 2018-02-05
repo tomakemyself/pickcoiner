@@ -20,9 +20,6 @@ public class ErrorPagesHandler extends Handler {
 	
 	private static final Log log = Log.getLog(ErrorPagesHandler.class);
 	
-	/* (non-Javadoc)
-	 * @see com.jfinal.handler.Handler#handle(java.lang.String, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, boolean[])
-	 */
 	/**
 	 * 主要解决Error页面国际化资源找不到的问题
 	 */
@@ -54,7 +51,6 @@ public class ErrorPagesHandler extends Handler {
 				result=target.substring(0, target.lastIndexOf(ext));
 			}
 		}
-		//log.error(result);
 		return result;
 	}
 

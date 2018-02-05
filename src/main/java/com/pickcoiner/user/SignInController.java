@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.jfinal.core.Controller;
 
 /**
-* <p>Title: com.pickcoiner.login.LoginController</p>
+* <p>Title: com.pickcoiner.user.SignInController</p>
 * <p>Description: 用户登录控制器</p>
 * <p>Company: pickcoiner</p> 
 * @Email tomakemyself@163.com
@@ -14,23 +14,23 @@ import com.jfinal.core.Controller;
 * @version 1.0
 * @date 2017-10-29 上午11:17:17
  */
-public class LoginController extends Controller {
+public class SignInController extends Controller {
 	
 	/**默认进入登录页*/
 	public void index(){
-		render("login.html");
+		render("signin.html");
 	}
 	
 	/** 用户登录方法 */
 	public void login(){
 		
 		String username = getPara("username");
-		String pwd = getPara("pwd");
+		String pwd = getPara("password");
 		String checkcode = getPara("checkcode");
 		
 		if(StringUtils.isBlank(username) || StringUtils.isBlank(pwd)){
 			//render("login.html");
-			redirect("");
+			redirect("/");
 			return;
 		}
 		
